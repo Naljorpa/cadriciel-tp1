@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Etudiant;
+use App\Models\Ville;
 use Illuminate\Http\Request;
 
 class EtudiantController extends Controller
@@ -14,12 +15,14 @@ class EtudiantController extends Controller
      */
     public function index()
     {
-           // afficher tous les étudiants
-           $etudiants = Etudiant::all();
-           return view(
-               'etudiant.index', [
+        // afficher tous les étudiants
+        $etudiants = Etudiant::all();
+        return view(
+            'etudiant.index',
+            [
                 'etudiants' => $etudiants
-                ]); //renvoie la vue avec les etudiants}
+            ]
+        ); //renvoie la vue avec les etudiants}
     }
 
     /**
@@ -30,7 +33,10 @@ class EtudiantController extends Controller
     public function create()
     {
         //afficher le formulaire pour créer un etudiant
-        return view('etudiant.create');
+        $villes = Ville::all();
+        return view('etudiant.create', [
+            'villes' => $villes
+        ]);
     }
 
     /**
@@ -42,6 +48,18 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
         //
+        $newEtudiant = Etudiant::create(
+            [
+                'nom' => $request->nom,
+                'addresse' => $request->addresse,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'date_de_naissance' => $request->date_de_naissance,
+                'ville_id' => $request->ville_id,
+            ]
+        );
+
+        return redirect(route('etudiant.show', $newEtudiant->id));
     }
 
     /**
@@ -52,14 +70,16 @@ class EtudiantController extends Controller
      */
     public function show(Etudiant $etudiant)
     {
-          //afficher les détails d'un étudiant
+        //afficher les détails d'un étudiant
         //ce qui se passe dans le background
         //select * from etudiants where id = $etudiant
 
         return view(
-            'etudiant.show', [
-              'etudiant'  => $etudiant
-             ]); //renvoie la vue avec le détail}
+            'etudiant.show',
+            [
+                'etudiant'  => $etudiant
+            ]
+        ); //renvoie la vue avec le détail}
 
     }
 
@@ -71,11 +91,13 @@ class EtudiantController extends Controller
      */
     public function edit(Etudiant $etudiant)
     {
-          //afficher le formulaire pour modifier le detail de l'etudiant
+        //afficher le formulaire pour modifier le detail de l'etudiant
+        $ville = Ville::all();
+        return view('etudiant.edit', [
+            'etudiant' => $etudiant,
+            'villes' => $ville
+        ]); //renvoie la vue d'édition avec la publication
 
-          return view('etudiant.edit', [
-            'etudiant' => $etudiant]); //renvoie la vue d'édition avec la publication
-            
     }
 
     /**

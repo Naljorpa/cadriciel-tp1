@@ -13,14 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 use App\Http\Controllers\EtudiantController;
-
-Route::get('/', [EtudiantController::class
-, 'index'])->name('etudiant.index');
 
 Route::get('etudiant', [EtudiantController::class
 , 'index'])->name('etudiant.index');
@@ -31,8 +28,8 @@ Route::get('etudiant/{etudiant}', [EtudiantController::class
 Route::get('etudiant-create', [EtudiantController::class
 , 'create'])->name('etudiant.create');
 
-// Route::post('blog-create', [EtudiantController::class
-// , 'store']);//on peut effacer le name blog.store
+Route::post('etudiant-create', [EtudiantController::class
+, 'store']);
 
 Route::get('etudiant-edit/{etudiant}', [EtudiantController::class
 , 'edit'])->name('etudiant.edit');

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center pt-5">
-            <a href="/blog" class="btn btn-outline-primary btn-sm">Retourner</a>
+            <a href="/etudiant" class="btn btn-outline-primary btn-sm">Retourner</a>
             <h1 class="display-one">{{ config('app.name') }}</h1>
             <hr>
             <div class="row">
@@ -19,16 +19,19 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        {!! $etudiant->addresse !!}
+                        <p><strong>Date de naissance</strong>: {!! $etudiant->date_de_naissance !!}</p>
+                        <p><strong>Adresse</strong>: {!! $etudiant->addresse !!}</p>
+                        <p><strong>Ville</strong>: {!! $etudiant->etudiantHasVille->nom !!}</p>
+                        <p><strong>Téléphone</strong>: {!! $etudiant->phone !!}</p>
+                        <p><strong>Courriel</strong>: {!! $etudiant->email !!}</p>
                     </div>
                     <div class="card-footer">
-                        <strong>Id: {{$etudiant->id}}</strong>
+                        <p><strong>Matricule</strong>: {{$etudiant->id}}</p>
                     </div>
                 </div>
 
             </div>
         </div>
-
 
     </div>
     <div class="row text-center mb-2">

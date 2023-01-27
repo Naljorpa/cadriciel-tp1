@@ -13,6 +13,7 @@ class CreateEtudiantsTable extends Migration
      */
     public function up()
     {
+        //source pour le foreign key https://stackoverflow.com/questions/26437342/laravel-migration-best-way-to-add-foreign-key
         Schema::create('etudiants', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
@@ -20,7 +21,8 @@ class CreateEtudiantsTable extends Migration
             $table->string('phone');
             $table->string('email')->unique();
             $table->string('date_de_naissance');
-            $table->integer('ville_id');
+            // $table->integer('ville_id');
+            $table->foreignId('ville_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

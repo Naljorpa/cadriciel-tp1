@@ -23,8 +23,30 @@
                         <input type="text" id="title" name="nom" class="form-control">
                     </div>
                     <div class="control-group col-12">
-                        <label for="addresse">addresse</label>
-                       <textarea name="addresse" id="body" class="form-control"></textarea>
+                        <label for="addresse">Addresse</label>
+                        <textarea name="addresse" id="body" class="form-control"></textarea>
+                    </div>
+                    <div class="control-group col-12">
+                        <label for="phone">Téléphone</label>
+                        <input type="text" name="phone" id="body" class="form-control"></input>
+                    </div>
+                    <div class="control-group col-12">
+                        <label for="email">Courriel</label>
+                        <input type="email" name="email" id="body" class="form-control"></input>
+                    </div>
+                    <div class="control-group col-12">
+                        <label for="date_de_naissance">Date de naissance</label>
+                        <input type="date" name="date_de_naissance" id="body" class="form-control"></input>
+                    </div>
+                    <div class="control-group col-12">
+                        <label for='ville_id'>Choisissez votre ville: </label>
+                        <select name='ville_id' id='villes-select'>
+                            <option value=''>--Choisissez--</option>
+                            @foreach($villes as $ville)
+                            <option value="{{$ville->id}}">{{$ville->nom}}</option>
+                            @endforeach
+                        </select>
+
                     </div>
                 </div>
                 <div class="card-footer">

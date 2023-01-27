@@ -18,11 +18,11 @@ class EtudiantFactory extends Factory
     {
         return [
             'nom' => $this->faker->name(),
-            'addresse' => $this->faker->address(),
+            'addresse' => $this->faker->streetAddress(),
             'phone' => $this->faker->phoneNumber(),
             'email' => $this->faker->unique()->safeEmail(),
             'date_de_naissance' => $this->faker->date(),
-            'ville_id' => Ville::factory()
+            'ville_id' => $this->faker->numberBetween(1, 15)
         
         ];
     }
