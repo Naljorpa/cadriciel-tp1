@@ -110,6 +110,18 @@ class EtudiantController extends Controller
     public function update(Request $request, Etudiant $etudiant)
     {
         //
+        $etudiant->update(
+            [
+                'nom' => $request->nom,
+                'addresse' => $request->addresse,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'date_de_naissance' => $request->date_de_naissance,
+                'ville_id' => $request->ville_id,
+            ]
+        );
+
+        return redirect(route('etudiant.show', $etudiant->id));
     }
 
     /**
@@ -120,6 +132,9 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-        //
+         //supprimer un etudiant
+         $etudiant->delete();
+
+         return redirect(route('etudiant.index'));
     }
 }

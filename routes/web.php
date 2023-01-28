@@ -37,5 +37,5 @@ Route::get('etudiant-edit/{etudiant}', [EtudiantController::class
 Route::put('etudiant-edit/{etudiant}', [EtudiantController::class
 , 'update']);
 
-Route::delete('etudiant-edit/{etudiantPost}', [EtudiantController::class
+Route::delete('etudiant-edit/{etudiant}', [EtudiantController::class
 , 'destroy']);

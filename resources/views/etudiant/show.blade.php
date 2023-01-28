@@ -39,13 +39,35 @@
             <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="btn btn-success">Mettre a jour</a>
         </div>
         <div class="col-6">
-            <form action="{{ route('etudiant.edit', $etudiant->id)}}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" class="btn btn-danger" value="Effacer">
-            </form>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Effacer
+            </button>
+
         </div>
 
     </div>
 </div>
-@endsection
+
+< <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Détruire un étudiant</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
+                </div>
+                <div class="modal-body">
+                    Êtes-vous certain de vouloir vous débarrasser de cet étudiant?
+                </div>
+                <div class="modal-footer">
+                    <form action="{{ route('etudiant.edit', $etudiant->id)}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <input type="submit" class="btn btn-danger" value="Effacer">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @endsection
