@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 text-center pt-5">
+                <a href="/" class="btn btn-outline-maisonneuve btn-sm mb-5">Retourner</a>
             <div class="blue-maisonneuve pt-3 pb-5">
                 <h1 class="display-one mt-5 blue-maisonneuve-h1">Liste des étudiants</h1>
             </div>

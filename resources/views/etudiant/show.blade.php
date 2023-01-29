@@ -3,32 +3,80 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center pt-5">
-            <a href="/etudiant" class="btn btn-outline-primary btn-sm">Retourner</a>
-            <h1 class="display-one">{{ config('app.name') }}</h1>
-            <hr>
-            <div class="row">
+        <div class="col-12  pt-5">
+            <div class="text-center">
+                <a href="/etudiant" class="btn btn-outline-maisonneuve btn-sm">Retourner</a>
             </div>
-            <h4 class="display-one">
-                {{ ucfirst($etudiant->nom) }}
-            </h4>
-            <hr>
+
+            <div class="text-center pt-5">
+                <div class="blue-maisonneuve pt-3 pb-5">
+                    <h1 class="display-one mt-5 blue-maisonneuve-h1">{{ ucfirst($etudiant->nom) }}</h1>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Date de naissance</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{!! $etudiant->date_de_naissance !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Adresse</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{!! $etudiant->addresse !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Ville</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{!! $etudiant->etudiantHasVille->nom !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Téléphone</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{!! $etudiant->phone !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Courriel</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{!! $etudiant->email !!}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Matricule</strong>:</p>
+                        </div>
+                        </p>
+                        <div class="col-md-6">
+                            <p>{{$etudiant->id}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="row mb-5 col-12">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-body">
-                        <p><strong>Date de naissance</strong>: {!! $etudiant->date_de_naissance !!}</p>
-                        <p><strong>Adresse</strong>: {!! $etudiant->addresse !!}</p>
-                        <p><strong>Ville</strong>: {!! $etudiant->etudiantHasVille->nom !!}</p>
-                        <p><strong>Téléphone</strong>: {!! $etudiant->phone !!}</p>
-                        <p><strong>Courriel</strong>: {!! $etudiant->email !!}</p>
-                    </div>
-                    <div class="card-footer">
-                        <p><strong>Matricule</strong>: {{$etudiant->id}}</p>
-                    </div>
-                </div>
+
 
             </div>
         </div>

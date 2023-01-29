@@ -5,12 +5,15 @@
     <div class="row">
 
         <div class="col-12 text-center pt-5">
+            <a href="/etudiant" class="btn btn-outline-maisonneuve btn-sm mb-5">Retourner</a>
             <div class="blue-maisonneuve pt-3 pb-5">
                 <h1 class="display-one mt-5 blue-maisonneuve-h1">Ajouter un étudiant</h1>
             </div>
         </div>
     </div>
 </div>
+
+<!-- inspiration pour le form: https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
 
 <div class="row ">
     <div class="col-lg-7 mx-auto mb-5">
