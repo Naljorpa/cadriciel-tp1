@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12  pt-5">
             <div class="text-center">
-                <a href="/etudiant" class="btn btn-outline-maisonneuve btn-sm">Retourner</a>
+                <a href="etudiant" class="btn btn-outline-maisonneuve btn-sm">Retourner</a>
             </div>
 
             <div class="text-center pt-5">
