@@ -4749,6 +4749,7 @@ tbody.collapse.show {
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
+  justify-content: center;
 }
 
 .page-link {
@@ -4757,7 +4758,7 @@ tbody.collapse.show {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: var(--maison-bk-blue);
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -4765,7 +4766,7 @@ tbody.collapse.show {
 .page-link:hover {
   color: #0056b3;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: var(--maison-h-blue);
   border-color: #dee2e6;
 }
 
@@ -4793,7 +4794,7 @@ tbody.collapse.show {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
+  background-color: var(--maison-bk-blue);
   border-color: #007bff;
 }
 

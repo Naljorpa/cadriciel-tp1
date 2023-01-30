@@ -13,8 +13,8 @@
                     Ajouter un etudiant
                 </a>
             </div>
+            {{$etudiants}}
         </div>
-
         <div class="list-group">
             @forelse($etudiants as $etudiant)
             <a class="list-group-item list-group-item-action" href="{{ route('etudiant.show', $etudiant->id) }}">{{ ucfirst($etudiant->nom) }}</a>
@@ -26,4 +26,5 @@
 
     </div>
 </div>
+
 @endsection
