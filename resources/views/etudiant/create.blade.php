@@ -1,19 +1,21 @@
 @extends('layouts.app')
 @section('title','Ajouter')
 @section('content')
-<div class="container">
-    <div class="row">
 
-        <div class="col-12 text-center pt-5">
-            <a href="etudiant" class="btn btn-outline-maisonneuve btn-sm mb-5">Retourner</a>
-            <div class="blue-maisonneuve pt-3 pb-5">
-                <h1 class="display-one mt-5 blue-maisonneuve-h1">Ajouter un étudiant</h1>
-            </div>
+<!-- Page info -->
+<div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/2.jpg')}}">
+    <div class="container">
+        <div class="site-breadcrumb">
+            <a href="/">Accueil</a>
+            <a href="{{ route('etudiant.index') }}">Liste d'étudiant</a>
+            <span>Ajouter un étudiant</span>
+        </div>
+        <div class="col-12 text-center ">
+            <h1 class="display-one mt-5 text-white">Ajouter un étudiant</h1>
         </div>
     </div>
 </div>
-
-<!-- inspiration pour le form: https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
+<!-- Page info end -->
 
 <div class="row ">
     <div class="col-lg-7 mx-auto mb-5">
@@ -74,7 +76,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="submit" value="sauvegarder" class="btn btn-success pt-2 btn-block">
+                                <input type="submit" value="sauvegarder" class="site-btn btn-block">
                             </div>
                         </div>
                     </form>

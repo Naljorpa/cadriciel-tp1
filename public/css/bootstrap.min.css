@@ -2585,8 +2585,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-success:hover {
-  color: var(--maison-bk-blue);
-  background-color: #fff;
+  cursor: pointer;
 }
 
 .btn-success:focus, .btn-success.focus {
@@ -5194,7 +5193,8 @@ tbody.collapse.show {
   flex-wrap: wrap;
   padding-left: 0;
   margin-bottom: 3rem;
-  justify-content: space-evenly;
+  margin-top: 3rem;
+  justify-content: space-around;
 }
 
 .list-group-item-action {
@@ -5206,7 +5206,7 @@ tbody.collapse.show {
 .list-group-item-action:hover, .list-group-item-action:focus {
   color: var(--maison-bk-blue);
   text-decoration: none;
-  background-color: var(--maison-h-blue);
+  background-color: #dee2e6;
 }
 
 .list-group-item-action:active {

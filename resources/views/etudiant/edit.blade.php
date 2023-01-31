@@ -2,20 +2,23 @@
 @section('title','Modifier')
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 text-center pt-5">
-            <a href="etudiant/{{$etudiant->id}}" class="btn btn-outline-maisonneuve btn-sm mb-5">Retourner</a>
-            <div class="blue-maisonneuve pt-3 pb-5">
-                <h1 class="display-one mt-5 blue-maisonneuve-h1">Modifier un étudiant</h1>
-            </div>
+<!-- Page info -->
+<div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/3.jpg')}}">
+    <div class="container">
+        <div class="site-breadcrumb">
+            <a href="/">Accueil</a>
+            <a href="{{ route('etudiant.index') }}">Liste d'étudiant</a>
+            <a href="{{ route('etudiant.show', $etudiant->id) }}">Détails</a>
+            <span>Modification</span>
+        </div>
+        <div class="col-12 text-center ">
+            <h1 class="display-one mt-5 text-white">Modifier un étudiant</h1>
         </div>
     </div>
 </div>
+<!-- Page info end -->
 
-<!-- inspiration pour le form: https://bbbootstrap.com/snippets/simple-contact-form-74408136 -->
-
-    <div class="row ">
+<div class="row ">
     <div class="col-lg-7 mx-auto mb-5">
         <div class="card mt-5 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
@@ -75,7 +78,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <input type="submit" value="sauvegarder" class="btn btn-success pt-2 btn-block">
+                                <input type="submit" value="sauvegarder" class="btn-site btn-success pt-2 pb-2 btn-block">
                             </div>
                         </div>
                     </form>

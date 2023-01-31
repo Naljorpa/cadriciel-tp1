@@ -1,15 +1,26 @@
 @extends('layouts.app')
 @section('title','Liste d\'étudiants')
 @section('content')
+
+<!-- Page info -->
+<div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
+    <div class="container">
+        <div class="site-breadcrumb">
+            <a href="/">Accueil</a>
+            <span>Liste d'étudiants</span>
+        </div>
+        <div class="col-12 text-center ">
+            <h1 class="display-one mt-5 text-white">Liste des étudiants</h1>
+        </div>
+    </div>
+</div>
+<!-- Page info end -->
+
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center pt-5">
-                <a href="/" class="btn btn-outline-maisonneuve btn-sm mb-5">Retourner</a>
-            <div class="blue-maisonneuve pt-3 pb-5">
-                <h1 class="display-one mt-5 blue-maisonneuve-h1">Liste des étudiants</h1>
-            </div>
+        <div class="col-12 text-center ">
             <div class="mt-5 mb-5">
-                <a href="{{route('etudiant.create')}}" class="btn btn-outline-maisonneuve">
+                <a href="{{route('etudiant.create')}}" class="site-btn">
                     Ajouter un etudiant
                 </a>
             </div>
@@ -21,7 +32,7 @@
             @empty <p class="text-warning">
                 Étudiant non trouvé </p>
             @endforelse
-           
+
         </div>
 
     </div>
