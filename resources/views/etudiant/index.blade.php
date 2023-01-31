@@ -6,7 +6,7 @@
 <div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="/">Accueil</a>
+            <a href="{{url('/')}}">Accueil</a>
             <span>Liste d'étudiants</span>
         </div>
         <div class="col-12 text-center ">

@@ -47,7 +47,7 @@
                 <div class="col-lg-9 col-md-9 flexer">
                     <nav class="main-menu">
                         <ul>
-                            <li><a href="/">Accueil</a></li>
+                            <li><a href="{{url('/')}}">Accueil</a></li>
                             <li><a href="{{ route('etudiant.index') }}">Liste des étudiants</a></li>
                         </ul>
                     </nav>

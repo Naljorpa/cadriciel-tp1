@@ -6,7 +6,7 @@
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/3.jpg')}}">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="/">Accueil</a>
+            <a href="{{url('/')}}">Accueil</a>
             <a href="{{ route('etudiant.index') }}">Liste d'étudiant</a>
             <a href="{{ route('etudiant.show', $etudiant->id) }}">Détails</a>
             <span>Modification</span>
