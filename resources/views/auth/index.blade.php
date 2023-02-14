@@ -44,15 +44,17 @@
                                         <input type="email" placeholder="email" class="form-control" name="email" value="{{old('email')}}">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="password">Password *</label>
-                                        <input type="password" placeholder="password" class="form-control" name="password">
-                                        @if ($errors->has('password'))
-                                        <div class="text-danger mt-2">
-                                            {{$errors->first('password')}}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="password">Password *</label>
+                                            <input type="password" placeholder="password" class="form-control" name="password">
+                                            @if ($errors->has('password'))
+                                            <div class="text-danger mt-2">
+                                                {{$errors->first('password')}}
+                                            </div>
+                                            @endif
                                         </div>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
