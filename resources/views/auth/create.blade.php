@@ -42,7 +42,6 @@
                                     <div class="form-group">
                                         <label for="nom">Nom *</label>
                                         <input type="text" placeholder="Nom" class="form-control" name="nom" value="{{old('nom')}}">
-                                        
                                         @if ($errors->has('nom'))
                                         <div class="text-danger mt-2">
                                             {{$errors->first('nom')}}
@@ -74,6 +73,44 @@
                                             {{$errors->first('password')}}
                                         </div>
                                         @endif
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+
+                         
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="addresse">Adresse *</label>
+                                        <input type="text" name="addresse" class="form-control" placeholder="Entrez votre adresse *" required="required">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for='ville_id'>Choisissez votre ville: </label>
+                                        <select name="ville_id" class="form-control" required="required">
+                                            <option value=''>--Choisissez--</option>
+                                            @foreach($villes as $ville)
+                                            <option value="{{$ville->id}}">{{$ville->nom}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Téléphone</label>
+                                        <input type="text" name="phone" id="body" class="form-control" placeholder="(xxx) xxx-xxxx*" required="required"></input>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="date_de_naissance">Date de naissance</label>
+                                        <input type="date" name="date_de_naissance" id="body" class="form-control" required="required"></input>
                                     </div>
                                 </div>
                             </div>

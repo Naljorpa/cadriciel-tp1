@@ -32,7 +32,7 @@
                         <div class="col-md-6">
                             <p><strong>Date de naissance</strong>:</p>
                         </div>
-                        </p>
+                       
                         <div class="col-md-6">
                             <p>{!! $etudiant->date_de_naissance !!}</p>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="col-md-6">
                             <p><strong>Adresse</strong>:</p>
                         </div>
-                        </p>
+                        
                         <div class="col-md-6">
                             <p>{!! $etudiant->addresse !!}</p>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="col-md-6">
                             <p><strong>Ville</strong>:</p>
                         </div>
-                        </p>
+                       
                         <div class="col-md-6">
                             <p>{!! $etudiant->etudiantHasVille->nom !!}</p>
                         </div>
@@ -59,7 +59,7 @@
                         <div class="col-md-6">
                             <p><strong>Téléphone</strong>:</p>
                         </div>
-                        </p>
+                        
                         <div class="col-md-6">
                             <p>{!! $etudiant->phone !!}</p>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="col-md-6">
                             <p><strong>Courriel</strong>:</p>
                         </div>
-                        </p>
+                       
                         <div class="col-md-6">
                             <p>{!! $etudiant->email !!}</p>
                         </div>
@@ -77,7 +77,7 @@
                         <div class="col-md-6">
                             <p><strong>Matricule</strong>:</p>
                         </div>
-                        </p>
+                      
                         <div class="col-md-6">
                             <p>{{$etudiant->id}}</p>
                         </div>

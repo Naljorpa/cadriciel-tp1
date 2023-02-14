@@ -50,9 +50,13 @@
                     <nav class="main-menu">
                         <ul>
 
-                            <li><a class="navbar-brand" href="#">Hello @if(Auth::check()) {{ Auth::user()->name }} @else Guest @endif</a></li>
+                            <li><a class="navbar-brand" href="#">Hello @if(Auth::check()) {{ Auth::user()->nom }} @else Guest @endif</a></li>
                             <li><a href="{{url('/')}}">Accueil</a></li>
                             <li><a href="{{ route('etudiant.index') }}">Liste des étudiants</a></li>
+                            @guest
+                            @else
+                            <li><a href="">Forum</a></li>
+                            @endguest
                         </ul>
                     </nav>
 
@@ -60,7 +64,6 @@
                     <a class="site-btn header-btn" href="{{route('user.create')}}">Registration</a>
                     <a class="site-btn header-btn" href="{{route('login')}}">Login</a>
                     @else
-                    <a class="site-btn header-btn" href="">Blogs</a>
                     <a class="site-btn header-btn" href="{{route('logout')}}">Logout</a>
                     @endguest
                     {{-- <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En <i class="flag flag-united-states"></i></a>

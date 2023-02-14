@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Etudiant;
+use App\Models\Ville;
+
 class CustomAuthController extends Controller
 {
     /**
@@ -27,7 +30,12 @@ class CustomAuthController extends Controller
      */
     public function create()
     {
-        return view('auth.create');
+        //afficher le formulaire pour créer un etudiant
+        $villes = Ville::all();
+        return view('auth.create', [
+            'villes' => $villes
+        ]);
+        // return view('auth.create');
     }
 
     /**
@@ -40,16 +48,29 @@ class CustomAuthController extends Controller
     {
         //validation
         $request->validate([
-            'name' => 'required',
+            'nom' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:2|max:20|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/'
-
+            //todo ajouter les validation de addresse et telephone
         ]);
 
         $user = new User;
-        $user->fill($request->all());
+        $user->email = $request->email;
+        $user->nom = $request->nom;
         $user->password = Hash::make($request->password);
         $user->save();
+
+
+
+        $newEtudiant = new Etudiant;
+        $newEtudiant->nom = $request->nom;
+        $newEtudiant->addresse = $request->addresse;
+        $newEtudiant->phone = $request->phone;
+        $newEtudiant->email = $request->email;
+        $newEtudiant->date_de_naissance = $request->date_de_naissance;
+        $newEtudiant->ville_id = $request->ville_id;
+        $newEtudiant->id = $user->id;
+        $newEtudiant->save();
 
         return redirect()->back()->withSuccess('User enregistré');
     }
@@ -84,11 +105,11 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
 
-  
+
         if (Auth::check()) {
             return view('dashboard');
         }
-       
+
         return redirect(route('login'))->withErrors('vous n\'êtes pas autorisé à accéder à cette page');
     }
 
