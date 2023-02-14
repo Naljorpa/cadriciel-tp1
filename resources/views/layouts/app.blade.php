@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{ asset ('css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{ asset ('css/style.css')}}" />
 
+     <!--CDN mdbootstrap-->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
