@@ -21,7 +21,7 @@
         <div class="card mt-5 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
                 <div class="container">
-                    if(session('success'))
+                    @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -34,7 +34,7 @@
                         @endforeach
                     </ul>
                     @endif
-                    <form action="{{route('login.authentication')}}" method="post">
+                    <form action="{{route('user.auth')}}" method="post">
                         @csrf
                         <div class="controls">
                             <div class="row">
@@ -44,31 +44,32 @@
                                         <input type="email" placeholder="email" class="form-control" name="email" value="{{old('email')}}">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="password">Password *</label>
-                                            <input type="password" placeholder="password" class="form-control" name="password">
-                                            @if ($errors->has('password'))
-                                            <div class="text-danger mt-2">
-                                                {{$errors->first('password')}}
-                                            </div>
-                                            @endif
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="password">Password *</label>
+                                        <input type="password" placeholder="password" class="form-control" name="password">
+                                        @if ($errors->has('password'))
+                                        <div class="text-danger mt-2">
+                                            {{$errors->first('password')}}
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="submit" value="Connecter" class="site-btn btn-block">
-                            </div>
-                        </div>
-                    </form>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" value="Connecter" class="site-btn btn-block">
+                    </div>
+                </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 @endsection

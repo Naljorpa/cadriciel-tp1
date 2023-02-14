@@ -21,7 +21,7 @@
         <div class="card mt-5 mx-auto p-4 bg-light">
             <div class="card-body bg-light">
                 <div class="container">
-                    if(session('success'))
+                    @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <label for="nom">Nom *</label>
                                         <input type="text" placeholder="Nom" class="form-control" name="nom" value="{{old('nom')}}">
-                                        }">
+                                        
                                         @if ($errors->has('nom'))
                                         <div class="text-danger mt-2">
                                             {{$errors->first('nom')}}

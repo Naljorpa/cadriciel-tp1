@@ -41,12 +41,17 @@ Route::put('etudiant-edit/{etudiant}', [EtudiantController::class
 Route::delete('etudiant-edit/{etudiant}', [EtudiantController::class
 , 'destroy']);
 
-Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
+Route::get('registration', [CustomAuthController::class, 'create'])->name('user.create');
 
-Route::post('/login', [CustomAuthController::class, 'authentication'])->name('login.authentication');
+// name ajouter mais pas obligatoire
+Route::post('registration', [CustomAuthController::class, 'store'])->name('user.store');
 
-Route::get('/registration', [CustomAuthController::class, 'create'])->name(
-'user.registration');
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('login', [CustomAuthController::class, 'authentication'])->name(
+    'user.auth');
 
-Route::post('/registration-store', [CustomAuthController::class, 'store'])->name(
-'user.store');
+Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
+
+Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
+
+Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

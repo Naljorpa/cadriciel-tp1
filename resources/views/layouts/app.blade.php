@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="{{ asset ('css/owl.carousel.css')}}" />
     <link rel="stylesheet" href="{{ asset ('css/style.css')}}" />
 
-     <!--CDN mdbootstrap-->
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
+    <!--CDN mdbootstrap-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -49,11 +49,23 @@
                 <div class="col-lg-9 col-md-9 flexer">
                     <nav class="main-menu">
                         <ul>
+
+                            <li><a class="navbar-brand" href="#">Hello @if(Auth::check()) {{ Auth::user()->name }} @else Guest @endif</a></li>
                             <li><a href="{{url('/')}}">Accueil</a></li>
                             <li><a href="{{ route('etudiant.index') }}">Liste des étudiants</a></li>
                         </ul>
                     </nav>
-                    <a href="" class="site-btn header-btn">Login</a>
+
+                    @guest
+                    <a class="site-btn header-btn" href="{{route('user.create')}}">Registration</a>
+                    <a class="site-btn header-btn" href="{{route('login')}}">Login</a>
+                    @else
+                    <a class="site-btn header-btn" href="">Blogs</a>
+                    <a class="site-btn header-btn" href="{{route('logout')}}">Logout</a>
+                    @endguest
+                    {{-- <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En <i class="flag flag-united-states"></i></a>
+                    <a class="nav-link @if($locale=='fr') bg-secondary @endif" href="{{route('lang', 'fr')}}">Fr <i class="flag flag-france"></i></a> --}}
+
                 </div>
             </div>
         </div>
@@ -63,7 +75,7 @@
 
 </body>
 <footer class="footer-section  pb-0">
-   
+
     <div class="footer-bottom">
         <div class="footer-warp">
             <ul class="footer-menu">

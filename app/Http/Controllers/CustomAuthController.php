@@ -54,6 +54,45 @@ class CustomAuthController extends Controller
         return redirect()->back()->withSuccess('User enregistré');
     }
 
+    public function authentication(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6|max:20'
+        ]);
+        $credentials = $request->only('email', 'password');
+        if (!Auth::validate($credentials)) :
+            return redirect(route('login'))
+                ->withErrors(trans('auth.failed'))
+                ->withInput();
+        //trans regarde dans le dossier de langue
+        endif;
+        $user = Auth::getProvider()->retrieveByCredentials($credentials);
+
+        Auth::login($user, $request->get('remember'));
+
+        return redirect()->intended('dashboard')->withSuccess('Signed in');
+    }
+
+    public function logout()
+    {
+        Session::flush();
+        Auth::logout();
+        return redirect(route('login'));
+    }
+
+    public function dashboard()
+    {
+
+  
+        if (Auth::check()) {
+            return view('dashboard');
+        }
+       
+        return redirect(route('login'))->withErrors('vous n\'êtes pas autorisé à accéder à cette page');
+    }
+
+
     /**
      * Display the specified resource.
      *
@@ -87,6 +126,8 @@ class CustomAuthController extends Controller
     {
         //
     }
+
+
 
     /**
      * Remove the specified resource from storage.
