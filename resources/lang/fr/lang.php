@@ -22,4 +22,17 @@ return [
     // etudiant.index
     'addStudent' => 'Ajouter un étudiant',
     'studentNot' => 'Étudiant non trouvé',
+
+     // etudiant.create
+     'name' => 'Nom',
+     'svpN' => 'Svp entrez votre nom',
+     'email' => 'Courriel',
+     'svpE' => 'Svp entrez votre courriel',
+     'address' => 'Adresse',
+     'enterAdd' => 'Entrez votre adresse',
+     'selectCity' => 'Choisissez votre ville',
+     'select' => 'Choisissez',
+     'phone' => 'Téléphone',
+     'bd' => 'Date de naissance',
+     'save' => 'Sauvegarder',
 ];
