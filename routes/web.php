@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController ;
+use App\Http\Controllers\ForumController;
+use App\Http\Controllers\LocalizationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,5 +55,30 @@ Route::post('login', [CustomAuthController::class, 'authentication'])->name(
 Route::get('dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard');
 
 Route::get('logout', [CustomAuthController::class, 'logout'])->name('logout');
+
+//Forum routes
+
+Route::get('forum', [ForumController::class
+, 'index'])->name('forum.index')->middleware('auth');
+
+Route::get('forum/{forum}', [ForumController::class
+, 'show'])->name('forum.show')->middleware('auth');
+
+Route::get('forum-create', [ForumController::class
+, 'create'])->name('forum.create')->middleware('auth');
+
+Route::post('forum-create', [ForumController::class
+, 'store'])->middleware('auth');//on peut effacer le name blog.store
+
+Route::get('forum-edit/{forum}', [ForumController::class
+, 'edit'])->name('forum.edit')->middleware('auth');
+
+Route::put('forum-edit/{forum}', [ForumController::class
+, 'update'])->middleware('auth');
+
+Route::delete('forum-edit/{forum}', [ForumController::class
+, 'destroy'])->middleware('auth');
+
+//Langue
 
 Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');

@@ -30,6 +30,7 @@
 </head>
 
 <body>
+    @php $locale = session()->get('locale'); @endphp
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -38,7 +39,7 @@
     <header class="header-section">
         <div class="container ">
             <div class="row bk-pale">
-                <div class="col-lg-3 col-md-3 ">
+                <div class="col-lg-3 col-md-3 flexer">
                     <div class="site-logo">
                         <img src="{{ asset ('img/college_maisonneuve.png')}} " alt="">
                     </div>
@@ -47,27 +48,34 @@
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-9 flexer">
-                    <nav class="main-menu">
+                    <nav class="main-menu flexer">
                         <ul>
 
-                            <li><a class="navbar-brand" href="#">Hello @if(Auth::check()) {{ Auth::user()->nom }} @else Guest @endif</a></li>
-                            <li><a href="{{url('/')}}">Accueil</a></li>
-                            <li><a href="{{ route('etudiant.index') }}">Liste des étudiants</a></li>
+                            <li><a class="navbar-brand" href="{{route('dashboard')}}">
+                                    @if(Auth::check()) @lang('lang.greetings') {{ Auth::user()->nom }} @endif</a></li>
+                            <li><a href="{{url('/')}}">@lang('lang.home')</a></li>
+                            <li><a href="{{ route('etudiant.index') }}">@lang('lang.studentList')</a></li>
                             @guest
                             @else
-                            <li><a href="">Forum</a></li>
+                            <li><a href="{{route('forum.index')}}">Forum</a></li>
                             @endguest
+                            <li><a class="nav-link @if($locale=='en'||$locale==null) lang @endif" href="{{route('lang', 'en')}}"><i class="flag flag-united-states"></i> En</a></li>
+                            <li><a class="lang-fr nav-link @if($locale=='fr') lang @endif" href="{{route('lang', 'fr')}}"><i class="flag flag-france"></i> Fr</a></li>
+
+                        </ul>
+                        <ul>
+                            @guest
+                            <li><a class="site-btn header-btn" href="{{route('user.create')}}">@lang('lang.registration')</a></li>
+                            <li><a class="site-btn header-btn" href="{{route('login')}}">@lang('lang.login')</a></li>
+                            @else
+                            <li><a class="site-btn header-btn" href="{{route('logout')}}">@lang('lang.logout')</a></li>
+                            @endguest
+                            {{-- <li><a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En <i class="flag flag-united-states"></i></a></li>
+                            <li><a class="nav-link @if($locale=='fr') bg-secondary @endif" href="{{route('lang', 'fr')}}">Fr <i class="flag flag-france"></i></a></li> --}}
                         </ul>
                     </nav>
 
-                    @guest
-                    <a class="site-btn header-btn" href="{{route('user.create')}}">Registration</a>
-                    <a class="site-btn header-btn" href="{{route('login')}}">Login</a>
-                    @else
-                    <a class="site-btn header-btn" href="{{route('logout')}}">Logout</a>
-                    @endguest
-                    {{-- <a class="nav-link @if($locale=='en') bg-secondary @endif" href="{{route('lang', 'en')}}">En <i class="flag flag-united-states"></i></a>
-                    <a class="nav-link @if($locale=='fr') bg-secondary @endif" href="{{route('lang', 'fr')}}">Fr <i class="flag flag-france"></i></a> --}}
+
 
                 </div>
             </div>
@@ -82,14 +90,14 @@
     <div class="footer-bottom">
         <div class="footer-warp">
             <ul class="footer-menu">
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Privacy</a></li>
+                <li><a href="#">@lang('lang.terms')</a></li>
+                <li><a href="#">@lang('lang.register')</a></li>
+                <li><a href="#">@lang('lang.privacy')</a></li>
             </ul>
             <div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>
+                &copy;<script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> @lang('lang.rights') <a href="https://colorlib.com" target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
         </div>
     </div>

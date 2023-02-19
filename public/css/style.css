@@ -166,7 +166,7 @@ h1 {
 	min-width: 196px;
 	text-align: center;
 	border: none;
-	padding: 15px 10px;
+	padding: 10px 5px;
 	font-weight: 600;
 	font-size: 16px;
 	position: relative;
@@ -176,7 +176,8 @@ h1 {
 }
 
 .site-btn:hover {
-	color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	color: #a9d0f7;
 }
 
 .site-btn.btn-dark {
@@ -264,13 +265,22 @@ h1 {
 	padding-top: 60px;
 }
 
+.header-section .col-lg-3{
+	padding-right: 40px;
+	padding-left: 40px
+}
+
+.header-section .col-lg-9{
+	padding-left: 0;
+	padding-right: 40px;
+}
+
 .bk-pale{
-	background-color: rgba(0, 0, 0, 0.70);
+	background-color: rgba(124, 124, 124, 0.8);
 }
 
 .site-logo {
 	display: inline-block;
-	padding: 10px;
 }
 
 .flexer{
@@ -279,9 +289,17 @@ h1 {
 	justify-content: flex-end;
 }
 
+.main-menu{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
 
 .main-menu ul {
 	list-style: none;
+	margin-top: 1rem;
 }
 
 .main-menu ul li {
@@ -294,11 +312,10 @@ h1 {
 	color: #fff;
 	margin-left: 45px;
 	font-weight: 600;
-	padding: 20px 0 5px;
 }
 
 .main-menu ul li a:hover {
-	color: #9ad6db;
+	color: #a9d0f7;
 }
 
 .header-btn {
@@ -307,7 +324,22 @@ h1 {
 
 .nav-switch {
 	display: none;
+	margin-left: 20px;
 }
+
+.main-menu .lang{
+	color: #a9d0f7;
+}
+
+.main-menu i.flag:not(.icon){
+	margin: 0;
+}
+
+.main-menu .lang-fr{
+	margin-left: 5px;
+}
+
+
 
 /*------------------
   Hero Section
@@ -327,6 +359,12 @@ h1 {
 	font-size: 60px;
 	font-weight: 500;
 	margin-bottom: 20px;
+}
+
+.hero-section .site-btn{
+	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px
 }
 
 .intro-newslatter input[type=text],
@@ -1692,25 +1730,31 @@ h1 {
 	.nav-switch {
 		display: block;
 		float: right;
+		background-color: rgba(255, 255, 255, 0);
 		color: #333;
 		font-size: 25px;
 		width: 40px;
 		height: 40px;
 		text-align: center;
 		padding-top: 2px;
-		-webkit-box-shadow: 0 0 13px rgba(0, 0, 0, 0.25);
-		box-shadow: 0 0 13px rgba(0, 0, 0, 0.25);
 		margin-top: 10px;
 	}
 	.main-menu {
 		background: #fff;
-		margin-top: 22px;
+		margin-top: 0;
 		position: absolute;
 		width: 100%;
 		left: 0;
 		top: 100%;
 		display: none;
 		z-index: 999;
+	}
+	.site-logo{
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+	.main-menu ul{
+		padding-left: 0;
 	}
 	.main-menu ul li {
 		display: block;
@@ -1721,6 +1765,13 @@ h1 {
 		border-bottom: 1px solid #e8e8e8;
 		display: block;
 		color: #474747;
+	}
+	.main-menu .header-btn {
+		color: white;
+	}
+
+	.main-menu .lang-fr{
+		margin-left: 0;
 	}
 	.hero-text {
 		margin-bottom: 50px;

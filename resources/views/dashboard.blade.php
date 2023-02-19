@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-12 text-center pt-5">
-                <a href="" class="site-btn">
+                <a href="{{route('forum.index')}}" class="site-btn">
                     Accéder au forum</a>
             </div>
         </div>

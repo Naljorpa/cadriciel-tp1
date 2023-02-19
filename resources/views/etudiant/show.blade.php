@@ -6,8 +6,8 @@
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/4.jpg')}}">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="{{url('/')}}">Accueil</a>
-            <a href="{{ route('etudiant.index') }}">Liste d'étudiant</a>
+            <a href="{{url('/')}}">@lang('lang.home')</a>
+            <a href="{{ route('etudiant.index') }}">@lang('lang.studentList')</a>
             <span>Détails</span>
         </div>
         <div class="col-12 text-center ">

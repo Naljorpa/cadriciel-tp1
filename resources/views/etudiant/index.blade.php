@@ -6,11 +6,11 @@
 <div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="{{url('/')}}">Accueil</a>
-            <span>Liste d'étudiants</span>
+            <a href="{{url('/')}}">@lang('lang.home')</a>
+            <span>@lang('lang.studentList')</span>
         </div>
         <div class="col-12 text-center ">
-            <h1 class="display-one mt-5 text-white">Liste des étudiants</h1>
+            <h1 class="display-one mt-5 text-white">@lang('lang.studentList')</h1>
         </div>
     </div>
 </div>
@@ -21,7 +21,7 @@
         <div class="col-12 text-center ">
             <div class="mt-5 mb-5">
                 <a href="{{route('etudiant.create')}}" class="site-btn">
-                    Ajouter un etudiant
+                    @lang('lang.addStudent')
                 </a>
             </div>
             {{$etudiants}}
@@ -30,7 +30,7 @@
             @forelse($etudiants as $etudiant)
             <a class="list-group-item list-group-item-action" href="{{ route('etudiant.show', $etudiant->id) }}">{{ ucfirst($etudiant->nom) }}</a>
             @empty <p class="text-warning">
-                Étudiant non trouvé </p>
+            @lang('lang.studentNot')</p>
             @endforelse
 
         </div>
