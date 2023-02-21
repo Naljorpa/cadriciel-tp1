@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Etudiant;
 use App\Models\Ville;
 use Illuminate\Http\Request;
@@ -48,18 +51,52 @@ class EtudiantController extends Controller
     public function store(Request $request)
     {
         //
-        $newEtudiant = Etudiant::create(
-            [
-                'nom' => $request->nom,
-                'addresse' => $request->addresse,
-                'phone' => $request->phone,
-                'email' => $request->email,
-                'date_de_naissance' => $request->date_de_naissance,
-                'ville_id' => $request->ville_id,
-            ]
-        );
 
-        return redirect(route('etudiant.show', $newEtudiant->id));
+        $request->validate([
+            'nom' => 'required|min:2|max:50',
+            'email' => 'required|email|unique:users',
+            'addresse' => 'required',
+            'phone' => 'required|regex:/^\(\d{3}\) \d{3}-\d{4}$/',
+            'date_de_naissance' => 'required|date_format:"Y-m-d"|before:today',
+            'ville_id' => 'required' 
+            //todo ajouter les validation de addresse et telephone
+        ]);
+
+        // $newEtudiant = Etudiant::create(
+        //     [
+        //         'nom' => $request->nom,
+        //         'addresse' => $request->addresse,
+        //         'phone' => $request->phone,
+        //         'email' => $request->email,
+        //         'date_de_naissance' => $request->date_de_naissance,
+        //         'ville_id' => $request->ville_id,
+                
+        //     ]
+        // );
+
+      
+
+        $user = new User;
+        $user->email = $request->email;
+        $user->nom = $request->nom;
+        // j'ai garder l'ancienne version d'ajouter étudiant pour démontrer la possibilité d'une éventuelle section admin. Ici l'étudiant est crée avec un mot de passe random qu'il pourra changer dans le futur.
+        
+        $user->password = Hash::make(Str::random(8));
+        $user->save();
+
+
+
+        $newEtudiant = new Etudiant;
+        $newEtudiant->nom = $request->nom;
+        $newEtudiant->addresse = $request->addresse;
+        $newEtudiant->phone = $request->phone;
+        $newEtudiant->email = $request->email;
+        $newEtudiant->date_de_naissance = $request->date_de_naissance;
+        $newEtudiant->ville_id = $request->ville_id;
+        $newEtudiant->id = $user->id;
+        $newEtudiant->save();
+       
+        return redirect(route('etudiant.show', $user->id));
     }
 
     /**
@@ -132,9 +169,9 @@ class EtudiantController extends Controller
      */
     public function destroy(Etudiant $etudiant)
     {
-         //supprimer un etudiant
-         $etudiant->delete();
+        //supprimer un etudiant
+        $etudiant->delete();
 
-         return redirect(route('etudiant.index'));
+        return redirect(route('etudiant.index'));
     }
 }

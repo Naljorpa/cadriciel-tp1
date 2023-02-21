@@ -6,11 +6,11 @@
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/2.jpg')}}">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="{{url('/')}}">Accueil</a>
-            <span>Login</span>
+            <a href="{{url('/')}}">@lang('lang.home')</a>
+            <span>@lang('lang.login')</span>
         </div>
         <div class="col-12 text-center ">
-            <h1 class="display-one mt-5 text-white">Login</h1>
+            <h1 class="display-one mt-5 text-white">@lang('lang.login')</h1>
         </div>
     </div>
 </div>
@@ -40,16 +40,21 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input type="email" placeholder="email" class="form-control" name="email" value="{{old('email')}}">
+                                        <label for="email">@lang('lang.email') *</label>
+                                        <input type="email" placeholder="@lang('lang.svpE')" class="form-control" name="email" value="{{old('email')}}">
+                                        @if ($errors->has('email'))
+                                        <div class="text-danger mt-2">
+                                            {{$errors->first('email')}}
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="password">Password *</label>
-                                        <input type="password" placeholder="password" class="form-control" name="password">
+                                        <label for="password">@lang('lang.password') *</label>
+                                        <input type="password" placeholder="@lang('lang.svpP')" class="form-control" name="password">
                                         @if ($errors->has('password'))
                                         <div class="text-danger mt-2">
                                             {{$errors->first('password')}}
@@ -65,6 +70,7 @@
                         <input type="submit" value="Connecter" class="site-btn btn-block">
                     </div>
                 </div>
+                <p>* @lang('lang.mandatory')</p>
                 </form>
             </div>
         </div>

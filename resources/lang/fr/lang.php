@@ -35,4 +35,30 @@ return [
      'phone' => 'Téléphone',
      'bd' => 'Date de naissance',
      'save' => 'Sauvegarder',
+
+       // etudiant.show
+    'detail' => 'Détails d\'un étudiant',
+    'city' => 'Ville',
+    'id' => 'Matricule',
+
+    // auth.create
+    'password' => 'Mot de passe',
+    'svpP' => 'Svp entrez un mot de passe',
+    'rSuccess' => 'Utilisateur enregistré',
+
+    // auth.index
+    'signIn' => 'Connecté',
+    'mandatory' => 'obligatoire',
+
+    // dashboard
+    'welcome' => 'Bienvenue',
+    'access' => 'Accéder au forum',
+
+    // forum.index
+    'forum' => 'Forum',
+    'enjoy' => 'Bonne lecture',
+    'addPost' => 'Ajouter un article',
+    'author' => 'Auteur',
+    'modSup' => 'Modifier ou supprimer mon article',
+    'notAvail' => 'Aucun article de forum disponible',
 ];

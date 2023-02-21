@@ -11,7 +11,7 @@
             <span>Détails</span>
         </div>
         <div class="col-12 text-center ">
-            <h1 class="display-one mt-5 text-white">Détails d'un étudiant</h1>
+            <h1 class="display-one mt-5 text-white">@lang('lang.detail')</h1>
         </div>
     </div>
 </div>
@@ -19,7 +19,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12  pt-5">
+        <div class="col-12  pt-5 pb-5">
             <div class="text-center pt-5">
                 <div class="blue-maisonneuve pt-3 pb-5">
                     <h2 class="display-one mt-5 blue-maisonneuve-h1">{{ ucfirst($etudiant->nom) }}</h2>
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Date de naissance</strong>:</p>
+                            <p><strong>@lang('lang.bd')</strong>:</p>
                         </div>
                        
                         <div class="col-md-6">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Adresse</strong>:</p>
+                            <p><strong>@lang('lang.address')</strong>:</p>
                         </div>
                         
                         <div class="col-md-6">
@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Ville</strong>:</p>
+                            <p><strong>@lang('lang.city')</strong>:</p>
                         </div>
                        
                         <div class="col-md-6">
@@ -57,7 +57,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Téléphone</strong>:</p>
+                            <p><strong>@lang('lang.phone')</strong>:</p>
                         </div>
                         
                         <div class="col-md-6">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Courriel</strong>:</p>
+                            <p><strong>@lang('lang.email')</strong>:</p>
                         </div>
                        
                         <div class="col-md-6">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <p><strong>Matricule</strong>:</p>
+                            <p><strong>@lang('lang.id')</strong>:</p>
                         </div>
                       
                         <div class="col-md-6">
@@ -89,7 +89,8 @@
 
 
     </div>
-    <div class="row text-center mb-5 mt-3">
+    <!-- Bouton enlevé mais éventuelement utilisable, il s'agit modifier update et destroy en prenant en compte le user id -->
+    <!--  <div class="row text-center mb-5 mt-3">
         <div class="col-6">
             <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="site-btn ">Mettre a jour</a>
         </div>
@@ -100,11 +101,11 @@
 
         </div>
 
-    </div>
+    </div> -->
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -123,6 +124,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 @endsection

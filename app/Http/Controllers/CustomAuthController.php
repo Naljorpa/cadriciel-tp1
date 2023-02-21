@@ -48,10 +48,13 @@ class CustomAuthController extends Controller
     {
         //validation
         $request->validate([
-            'nom' => 'required',
+            'nom' => 'required|min:2|max:50',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:2|max:20|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/'
-            //todo ajouter les validation de addresse et telephone
+            'password' => 'required|min:2|max:20|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/',
+            'addresse' => 'required',
+            'phone' => 'required|regex:/^\(\d{3}\) \d{3}-\d{4}$/',
+            'date_de_naissance' => 'required|date_format:"Y-m-d"|before:today',
+            'ville_id' => 'required' 
         ]);
 
         $user = new User;
@@ -72,14 +75,14 @@ class CustomAuthController extends Controller
         $newEtudiant->id = $user->id;
         $newEtudiant->save();
 
-        return redirect()->back()->withSuccess('User enregistré');
+        return redirect()->back()->withSuccess(trans('lang.rSuccess'));
     }
 
     public function authentication(Request $request)
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6|max:20'
+            'password' => 'required|min:2|max:20|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/'
         ]);
         $credentials = $request->only('email', 'password');
         if (!Auth::validate($credentials)) :
@@ -92,7 +95,7 @@ class CustomAuthController extends Controller
 
         Auth::login($user, $request->get('remember'));
 
-        return redirect()->intended('dashboard')->withSuccess('Signed in');
+        return redirect()->intended('dashboard')->withSuccess(trans('lang.signIn'));
     }
 
     public function logout()
