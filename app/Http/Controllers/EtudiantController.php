@@ -62,39 +62,26 @@ class EtudiantController extends Controller
             //todo ajouter les validation de addresse et telephone
         ]);
 
-        // $newEtudiant = Etudiant::create(
-        //     [
-        //         'nom' => $request->nom,
-        //         'addresse' => $request->addresse,
-        //         'phone' => $request->phone,
-        //         'email' => $request->email,
-        //         'date_de_naissance' => $request->date_de_naissance,
-        //         'ville_id' => $request->ville_id,
-                
-        //     ]
-        // );
+        $user = User::create(
+            [
+                'nom' => $request->nom,
+                'addresse' => $request->address,
+                'email' => $request->email,
+                'password' =>  Hash::make(Str::random(8))
+            ]
+        );
 
-      
-
-        $user = new User;
-        $user->email = $request->email;
-        $user->nom = $request->nom;
-        // j'ai garder l'ancienne version d'ajouter étudiant pour démontrer la possibilité d'une éventuelle section admin. Ici l'étudiant est crée avec un mot de passe random qu'il pourra changer dans le futur.
-        
-        $user->password = Hash::make(Str::random(8));
-        $user->save();
-
-
-
-        $newEtudiant = new Etudiant;
-        $newEtudiant->nom = $request->nom;
-        $newEtudiant->addresse = $request->addresse;
-        $newEtudiant->phone = $request->phone;
-        $newEtudiant->email = $request->email;
-        $newEtudiant->date_de_naissance = $request->date_de_naissance;
-        $newEtudiant->ville_id = $request->ville_id;
-        $newEtudiant->id = $user->id;
-        $newEtudiant->save();
+        $newEtudiant = Etudiant::create(
+            [
+                'user_id' => $user->id,
+                'nom' => $request->nom,
+                'addresse' => $request->addresse,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'date_de_naissance' => $request->date_de_naissance,
+                'ville_id' => $request->ville_id,
+            ]
+        );
        
         return redirect(route('etudiant.show', $user->id));
     }
@@ -158,7 +145,7 @@ class EtudiantController extends Controller
             ]
         );
 
-        return redirect(route('etudiant.show', $etudiant->id));
+        return redirect(route('etudiant.show', $etudiant->user_id));
     }
 
     /**

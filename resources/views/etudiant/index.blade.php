@@ -28,7 +28,7 @@
         </div>
         <div class="list-group">
             @forelse($etudiants as $etudiant)
-            <a class="list-group-item list-group-item-action" href="{{ route('etudiant.show', $etudiant->id) }}">{{ ucfirst($etudiant->nom) }}</a>
+            <a class="list-group-item list-group-item-action" href="{{ route('etudiant.show', $etudiant->user_id) }}">{{ ucfirst($etudiant->nom) }}</a>
             @empty <p class="text-warning">
             @lang('lang.studentNot')</p>
             @endforelse

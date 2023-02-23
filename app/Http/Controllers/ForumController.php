@@ -17,14 +17,13 @@ class ForumController extends Controller
     public function index()
     {
         // afficher tous les articles du blog
-        $blogs = Forum::all();
+        
 
         if (Auth::check()) {
-            $forums = Forum::all();
+            $forums = Forum::select()->paginate(10);;
             return view('forum.index', ['forums' => $forums]);
         }
-        return redirect(route('login'))->withErrors('Vous n\'
-           êtes pas autorisé à accéder');
+        return redirect(route('login'))->withErrors(trans('lang.notAuth'));
 
         // return $blogs[0]->title;
     }
@@ -37,8 +36,6 @@ class ForumController extends Controller
     public function create()
     {
         //afficher le formulaire pour créer un article de blog
-
-        
 
         return view('forum.create');
     }
@@ -124,7 +121,9 @@ class ForumController extends Controller
         $forum->update(
             [
                 'title' => $request->title,
-                'body' => $request->body
+                'body' => $request->body,
+                'title_fr' => $request->title_fr,
+                'body_fr' => $request->body_fr
             ]
         );
 
@@ -146,11 +145,11 @@ class ForumController extends Controller
     }
 
 
-    //pagination
-    //select * from blog_posts limit 20 10
-    public function page()
-    {
-        $forums = Forum::select()->paginate(3);
-        return view('forum.page', ['forums' => $forums]);
-    }
+    // //pagination
+    // //select * from blog_posts limit 20 10
+    // public function page()
+    // {
+    //     $forums = Forum::select()->paginate(2);
+    //     return view('forum.page', ['forums' => $forums]);
+    // }
 }

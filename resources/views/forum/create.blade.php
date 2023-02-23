@@ -6,12 +6,13 @@
 <div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
     <div class="container">
         <div class="site-breadcrumb">
-            <a href="{{url('/')}}">Accueil</a>
-            <span>Forum</span>
+            <a href="{{url('/')}}">@lang('lang.home')</a>
+            <a href="{{route('forum.index')}}">@lang('lang.forum')</a>
+            <span>@lang('lang.addPost')</span>
         </div>
         <div class="col-12 text-center ">
             <h1 class="display-one mt-5 text-white">
-                Ajouter un article
+                @lang('lang.addPost')
             </h1>
         </div>
     </div>
@@ -28,8 +29,8 @@
                         @csrf
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">English *</button>
-                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Français</button>
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"> @lang('lang.english') *</button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> @lang('lang.french')</button>
                             </div>
                         </nav>
                         <div class="tab-content" id="nav-tabContent">
@@ -38,7 +39,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">@lang('lang.title')</label>
                                                 <input type="text" id="title" name="title" class="form-control" required="required">
                                             </div>
                                         </div>
@@ -46,7 +47,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="body">Message</label>
+                                                <label for="body">@lang('lang.message')</label>
                                                 <textarea name="body" id="body" class="form-control" required="required"></textarea>
                                             </div>
                                         </div>
@@ -58,7 +59,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="title_fr">Titre</label>
+                                                <label for="title_fr">@lang('lang.title')</label>
                                                 <input type="text" id="title_fr" name="title_fr" class="form-control">
                                             </div>
                                         </div>
@@ -66,7 +67,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="body_fr">Message</label>
+                                                <label for="body_fr">@lang('lang.message')</label>
                                                 <textarea name="body_fr" id="body_fr" class="form-control"></textarea>
                                             </div>
                                         </div>
@@ -80,7 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p>* obligatoire</p>
+                        <p>* @lang('lang.mandatory')</p>
                     </form>
                 </div>
             </div>

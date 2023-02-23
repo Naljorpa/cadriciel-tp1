@@ -27,7 +27,7 @@
                 @lang('lang.addPost')
             </a>
         </div>
-
+        {{$forums}}
 
         <div class="row mb-5 col-12">
             <div class="col-12">

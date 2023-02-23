@@ -9,8 +9,11 @@ class Etudiant extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'user_id';
+
     // les champs autorisé lors de insert et update
     protected $fillable = [
+        'user_id',
         'nom',
         'addresse',
         'phone',

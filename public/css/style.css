@@ -17,6 +17,10 @@ body {
 	font-smoothing: antialiased;
 }
 
+*{
+	box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -86,9 +90,7 @@ textarea:focus {
 	font-style: italic;
 }
 
-a:hover {
-	color: #9ad6db;
-}
+
 
 a:hover,
 a:focus {
@@ -100,6 +102,7 @@ ul,
 ol {
 	padding: 0;
 	margin: 0;
+
 }
 
 /*---------------------
@@ -163,7 +166,7 @@ h1 {
 
 .site-btn {
 	display: inline-block;
-	min-width: 196px;
+	min-width: 190px;
 	text-align: center;
 	border: none;
 	padding: 10px 5px;
@@ -175,9 +178,17 @@ h1 {
 	background: #003d7d;
 }
 
+.header-section  .site-btn{
+	min-width: 150px;
+
+}
+
+
+
 .site-btn:hover {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	color: #a9d0f7;
+	color: white;
+
 }
 
 .site-btn.btn-dark {
@@ -265,8 +276,12 @@ h1 {
 	padding-top: 60px;
 }
 
+.header-section ul{
+	padding-left: 0;
+}
+
 .header-section .col-lg-3{
-	padding-right: 40px;
+
 	padding-left: 40px
 }
 
@@ -275,12 +290,13 @@ h1 {
 	padding-right: 40px;
 }
 
+
 .bk-pale{
 	background-color: rgba(124, 124, 124, 0.8);
 }
 
 .site-logo {
-	display: inline-block;
+	display: block;
 }
 
 .flexer{
@@ -312,10 +328,13 @@ h1 {
 	color: #fff;
 	margin-left: 45px;
 	font-weight: 600;
+	border-bottom: 2px solid transparent;
 }
 
-.main-menu ul li a:hover {
-	color: #a9d0f7;
+.main-menu ul li a:hover:not(.site-btn) {
+	
+	border-bottom: 2px solid white;
+	color: white;
 }
 
 .header-btn {
@@ -328,7 +347,7 @@ h1 {
 }
 
 .main-menu .lang{
-	color: #a9d0f7;
+	color: #d82a4e;
 }
 
 .main-menu i.flag:not(.icon){
@@ -1068,6 +1087,9 @@ h1 {
 /*------------------
   Blog Page
 ---------------------*/
+.autDate p{
+	margin-bottom: 0;
+}
 
 .blog-page {
 	border-bottom: 2px solid #c5ced0;
@@ -1595,6 +1617,12 @@ h1 {
 	.container {
 		max-width: 1180px;
 	}
+}
+
+@media (max-width: 1400px) {
+	.site-breadcrumb{
+	padding-top: 270px; 
+	} 
 }
 
 @media (max-width: 1705px) {

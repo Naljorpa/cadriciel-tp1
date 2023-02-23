@@ -8,7 +8,7 @@
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
             <a href="{{ route('etudiant.index') }}">@lang('lang.studentList')</a>
-            <span>Détails</span>
+            <span>@lang('lang.detail')</span>
         </div>
         <div class="col-12 text-center ">
             <h1 class="display-one mt-5 text-white">@lang('lang.detail')</h1>
@@ -79,7 +79,7 @@
                         </div>
                       
                         <div class="col-md-6">
-                            <p>{{$etudiant->id}}</p>
+                            <p>{{$etudiant->user_id}}</p>
                         </div>
                     </div>
                 </div>
@@ -89,41 +89,8 @@
 
 
     </div>
-    <!-- Bouton enlevé mais éventuelement utilisable, il s'agit modifier update et destroy en prenant en compte le user id -->
-    <!--  <div class="row text-center mb-5 mt-3">
-        <div class="col-6">
-            <a href="{{ route('etudiant.edit', $etudiant->id)}}" class="site-btn ">Mettre a jour</a>
-        </div>
-        <div class="col-6">
-            <button type="button" class="site-btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Effacer
-            </button>
-
-        </div>
-
-    </div> -->
+  
 </div>
 
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Détruire un étudiant</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">Fermer</button>
-            </div>
-            <div class="modal-body">
-                Êtes-vous certain de vouloir vous débarrasser de cet étudiant?
-            </div>
-            <div class="modal-footer">
-                <form action="{{ route('etudiant.edit', $etudiant->id)}}" method="post">
-                    @csrf
-                    @method('delete')
-                    <input type="submit" class="site-btn btn-danger" value="Effacer">
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 @endsection

@@ -38,8 +38,8 @@
     <!-- Header section -->
     <header class="header-section">
         <div class="container ">
-            <div class="row bk-pale">
-                <div class="col-lg-3 col-md-3 flexer">
+            <div class="row bk-pale pt-4 pb-4">
+                <div class="col-lg-3 col-md-5 flexer">
                     <div class="site-logo">
                         <img src="{{ asset ('img/college_maisonneuve.png')}} " alt="">
                     </div>
@@ -47,7 +47,7 @@
                         <i class="fa fa-bars"></i>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-9 flexer">
+                <div class="col-lg-9 col-md-7 flexer">
                     <nav class="main-menu flexer">
                         <ul>
 

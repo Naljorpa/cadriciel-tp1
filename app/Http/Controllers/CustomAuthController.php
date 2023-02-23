@@ -54,26 +54,46 @@ class CustomAuthController extends Controller
             'addresse' => 'required',
             'phone' => 'required|regex:/^\(\d{3}\) \d{3}-\d{4}$/',
             'date_de_naissance' => 'required|date_format:"Y-m-d"|before:today',
-            'ville_id' => 'required' 
+            'ville_id' => 'required'
         ]);
 
-        $user = new User;
-        $user->email = $request->email;
-        $user->nom = $request->nom;
-        $user->password = Hash::make($request->password);
-        $user->save();
+        // $user = new User;
+        // $user->email = $request->email;
+        // $user->nom = $request->nom;
+        // $user->password = Hash::make($request->password);
+        // $user->save();
+
+        $user = User::create(
+            [
+                'nom' => $request->nom,
+                'addresse' => $request->address,
+                'email' => $request->email,
+                'password' =>  Hash::make($request->password),
+            ]
+        );
+
+        $newEtudiant = Etudiant::create(
+            [
+                'user_id' => $user->id,
+                'nom' => $request->nom,
+                'addresse' => $request->addresse,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'date_de_naissance' => $request->date_de_naissance,
+                'ville_id' => $request->ville_id,
+            ]
+        );
 
 
-
-        $newEtudiant = new Etudiant;
-        $newEtudiant->nom = $request->nom;
-        $newEtudiant->addresse = $request->addresse;
-        $newEtudiant->phone = $request->phone;
-        $newEtudiant->email = $request->email;
-        $newEtudiant->date_de_naissance = $request->date_de_naissance;
-        $newEtudiant->ville_id = $request->ville_id;
-        $newEtudiant->id = $user->id;
-        $newEtudiant->save();
+        // $newEtudiant = new Etudiant;
+        // $newEtudiant->nom = $request->nom;
+        // $newEtudiant->addresse = $request->addresse;
+        // $newEtudiant->phone = $request->phone;
+        // $newEtudiant->email = $request->email;
+        // $newEtudiant->date_de_naissance = $request->date_de_naissance;
+        // $newEtudiant->ville_id = $request->ville_id;
+        // $newEtudiant->id = $user->id;
+        // $newEtudiant->save();
 
         return redirect()->back()->withSuccess(trans('lang.rSuccess'));
     }
@@ -113,7 +133,7 @@ class CustomAuthController extends Controller
             return view('dashboard');
         }
 
-        return redirect(route('login'))->withErrors('vous n\'êtes pas autorisé à accéder à cette page');
+        return redirect(route('login'))->withErrors(trans('lang.notAuth'));
     }
 
 
