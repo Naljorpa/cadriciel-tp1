@@ -91,6 +91,6 @@ return [
 
   // repertoire.edit
   'download' => 'Télécharcher',
-  'editDoc' => 'Edit Document',
+  'editDoc' => 'Modification de document',
   'eSuccess' => 'Mise à jour enregistrée',
 ];
