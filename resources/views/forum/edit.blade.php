@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title','Mon article')
+@section('title','Edit article')
 @section('content')
 
 <!-- Page info -->
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/1.jpg')}}">
-    <div class="container">
+    <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
             <a href="{{route('forum.index')}}">@lang('lang.forum')</a>
@@ -34,7 +34,7 @@
                                 <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> @lang('lang.french')</button>
                             </div>
                         </nav>
-                        <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-content mt-3" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <div class="controls">
                                     <div class="row">
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 mt-3">
                                     <input type="submit" value="@lang('lang.update')" class="site-btn btn-block">
                                 </div>
                             </div>

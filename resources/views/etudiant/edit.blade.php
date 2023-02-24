@@ -4,7 +4,7 @@
 
 <!-- Page info -->
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/3.jpg')}}">
-    <div class="container">
+    <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">Accueil</a>
             <a href="{{ route('etudiant.index') }}">Liste d'étudiant</a>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <input type="submit" value="sauvegarder" class="btn-site btn-success pt-2 pb-2 btn-block">
                             </div>
                         </div>

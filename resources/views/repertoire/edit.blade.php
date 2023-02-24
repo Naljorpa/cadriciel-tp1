@@ -1,18 +1,18 @@
 @extends('layouts.app')
-@section('title','Écrire article')
+@section('title','Edit document')
 @section('content')
 
 <!-- Page info -->
-<div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
+<div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/1.jpg')}}">
     <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
-            <a href="{{route('forum.index')}}">@lang('lang.forum')</a>
-            <span>@lang('lang.addPost')</span>
+            <a href="{{route('repertoire.index')}}">@lang('lang.rep')</a>
+            <span>@lang('lang.editDoc')</span>
         </div>
         <div class="col-12 text-center ">
             <h1 class="display-one mt-5 text-white">
-                @lang('lang.addPost')
+                @lang('lang.editDoc')
             </h1>
         </div>
     </div>
@@ -25,15 +25,15 @@
             <div class="card-body bg-light">
 
                 <div class="container">
-                @if(session('success'))
+                    @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
                     <form method="post">
                         @csrf
-                        <!-- source: https://bootstrapshuffle.com/classes/navs/tab-pane -->
+                        @method('put')
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                                 <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"> @lang('lang.english') *</button>
@@ -47,15 +47,12 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="title">@lang('lang.title')</label>
-                                                <input type="text" id="title" name="title" class="form-control" required="required">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="body">@lang('lang.message')</label>
-                                                <textarea name="body" id="body" class="form-control" required="required"></textarea>
+                                                <input type="text" id="title" name="title" class="form-control" required="required" value="{{$repertoire->title}}">
+                                                @if ($errors->has('title'))
+                                                <div class="text-danger mt-2">
+                                                    {{$errors->first('title')}}
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -67,34 +64,29 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="title_fr">@lang('lang.title')</label>
-                                                <input type="text" id="title_fr" name="title_fr" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="body_fr">@lang('lang.message')</label>
-                                                <textarea name="body_fr" id="body_fr" class="form-control"></textarea>
+                                                <input type="text" id="title_fr" name="title_fr" class="form-control" value="{{$repertoire->title_fr}}">
+                                                @if ($errors->has('title_fr'))
+                                                <div class="text-danger mt-2">
+                                                    {{$errors->first('title_fr')}}
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12 mt-3">
-                                    <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
                             </div>
                         </div>
-                        <p>* @lang('lang.mandatory')</p>
                     </form>
                 </div>
+                <p>* @lang('lang.mandatory')</p>
             </div>
         </div>
     </div>
 </div>
-
-
-@endsection
+</div>

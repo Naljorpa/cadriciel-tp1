@@ -88,5 +88,11 @@ return [
    'download' => 'Download',
    'action' => 'Actions',
    'upload' => 'Upload your document',
+   'dSuccess' => 'Successful file transfer',
+
+   // repertoire.edit
+   'download' => 'Download',
+   'editDoc' => 'Edit Document',
+   'eSuccess' => 'Update successful',
    
 ];

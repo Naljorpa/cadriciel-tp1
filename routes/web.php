@@ -100,3 +100,12 @@ Route::get('repertoire/{repertoire}', [RepertoireController::class
 
 Route::get('repertoire/{id}/download',  [RepertoireController::class
 , 'download'])->name('repertoire.download');
+
+Route::get('repertoire-edit/{repertoire}', [RepertoireController::class
+, 'edit'])->name('repertoire.edit')->middleware('auth');
+
+Route::put('repertoire-edit/{repertoire}', [RepertoireController::class
+, 'update'])->middleware('auth');
+
+Route::delete('repertoire-edit/{repertoire}', [RepertoireController::class
+, 'destroy'])->middleware('auth');

@@ -57,12 +57,6 @@ class CustomAuthController extends Controller
             'ville_id' => 'required'
         ]);
 
-        // $user = new User;
-        // $user->email = $request->email;
-        // $user->nom = $request->nom;
-        // $user->password = Hash::make($request->password);
-        // $user->save();
-
         $user = User::create(
             [
                 'nom' => $request->nom,
@@ -84,20 +78,15 @@ class CustomAuthController extends Controller
             ]
         );
 
-
-        // $newEtudiant = new Etudiant;
-        // $newEtudiant->nom = $request->nom;
-        // $newEtudiant->addresse = $request->addresse;
-        // $newEtudiant->phone = $request->phone;
-        // $newEtudiant->email = $request->email;
-        // $newEtudiant->date_de_naissance = $request->date_de_naissance;
-        // $newEtudiant->ville_id = $request->ville_id;
-        // $newEtudiant->id = $user->id;
-        // $newEtudiant->save();
-
         return redirect()->back()->withSuccess(trans('lang.rSuccess'));
     }
 
+    /**
+     * Authentification.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function authentication(Request $request)
     {
         $request->validate([
@@ -118,6 +107,10 @@ class CustomAuthController extends Controller
         return redirect()->intended('dashboard')->withSuccess(trans('lang.signIn'));
     }
 
+    /**
+     * Logout
+     */
+    
     public function logout()
     {
         Session::flush();
@@ -127,8 +120,6 @@ class CustomAuthController extends Controller
 
     public function dashboard()
     {
-
-
         if (Auth::check()) {
             return view('dashboard');
         }

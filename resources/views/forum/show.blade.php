@@ -4,7 +4,7 @@
 
 <!-- Page info -->
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/1.jpg')}}">
-    <div class="container">
+    <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
             <a href="{{route('forum.index')}}">@lang('lang.forum')</a>

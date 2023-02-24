@@ -5,7 +5,7 @@
 
 <!-- Page info -->
 <div class="page-info-section set-bg" data-setbg="{{asset('img/page-bg/2.jpg')}}">
-    <div class="container">
+    <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
             <a href="{{ route('etudiant.index') }}">@lang('lang.studentList')</a>
@@ -113,7 +113,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
                             </div>
                         </div>

@@ -57,7 +57,8 @@
                             <li><a href="{{ route('etudiant.index') }}">@lang('lang.studentList')</a></li>
                             @guest
                             @else
-                            <li><a href="{{route('forum.index')}}">Forum</a></li>
+                            <li><a href="{{route('forum.index')}}">@lang('lang.forum')</a></li>
+                            <li><a href="{{route('repertoire.index')}}">@lang('lang.rep')</a></li>
                             @endguest
                             <li><a class="nav-link @if($locale=='en'||$locale==null) lang @endif" href="{{route('lang', 'en')}}"><i class="flag flag-united-states"></i> En</a></li>
                             <li><a class="lang-fr nav-link @if($locale=='fr') lang @endif" href="{{route('lang', 'fr')}}"><i class="flag flag-france"></i> Fr</a></li>
@@ -74,9 +75,6 @@
                             <li><a class="nav-link @if($locale=='fr') bg-secondary @endif" href="{{route('lang', 'fr')}}">Fr <i class="flag flag-france"></i></a></li> --}}
                         </ul>
                     </nav>
-
-
-
                 </div>
             </div>
         </div>

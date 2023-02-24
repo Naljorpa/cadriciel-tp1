@@ -17,7 +17,7 @@ class ForumController extends Controller
     public function index()
     {
         // afficher tous les articles du blog
-        
+
 
         if (Auth::check()) {
             $forums = Forum::select()->paginate(5);;
@@ -78,7 +78,7 @@ class ForumController extends Controller
     public function show(Forum $forum)
     {
         //afficher un article de blog
- 
+
 
         return view(
             'forum.show',
@@ -100,7 +100,7 @@ class ForumController extends Controller
     public function edit(Forum $forum)
     {
         //afficher le formulaire pour modifier l'article
-    
+
         return view('forum.edit', [
             'forum' => $forum
         ]); //renvoie la vue d'édition avec la publication
@@ -144,12 +144,4 @@ class ForumController extends Controller
         return redirect(route('forum.index'));
     }
 
-
-    // //pagination
-    // //select * from blog_posts limit 20 10
-    // public function page()
-    // {
-    //     $forums = Forum::select()->paginate(2);
-    //     return view('forum.page', ['forums' => $forums]);
-    // }
 }

@@ -4,7 +4,7 @@
 @php $locale = session()->get('locale'); @endphp
 <!-- Page info -->
 <div class="page-info-section set-bg" data-setbg="img/page-bg/1.jpg">
-    <div class="container">
+    <div class="container mt-5">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
             <span>@lang('lang.rep')</span>
@@ -17,7 +17,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center pt-3 pb-5">
+        <div class="col-12 text-center mt-5 mb-5">
             <a href="{{route('repertoire.create')}}" class="site-btn">
                 @lang('lang.addDoc')
             </a>
@@ -50,14 +50,13 @@
                                 @php
                                 $extension = pathinfo($repertoire->location, PATHINFO_EXTENSION);
                                 switch ($extension) {
-                                case 'pdf':
-                                $icon = 'pdf-icon.svg';
+                                case 'pdf': $icon = 'pdf-icon.svg';
                                 break;
-                                case 'doc':
-                                $icon = 'doc-icon.png';
+                                case 'doc': $icon = 'doc-icon.png';
                                 break;
-                                case 'zip':
-                                $icon = 'zip-icon.svg';
+                                case 'zip': $icon = 'zip-icon.svg';
+                                break;
+                                case 'docx': $icon = 'doc-icon.png';
                                 break;
                                 }
                                 @endphp
@@ -71,7 +70,10 @@
                             <td>{{ ucfirst($repertoire->repertoireHasUser->nom) }}</td>
                             <td>
                                 @if(Auth::user()->id == ucfirst($repertoire->repertoireHasUser->id))
-                                <a class="btn btn-link btn-sm btn-rounded" href="{{ route('repertoire.show', $repertoire->id) }}">@lang('lang.modSup')</a>
+                                <a class="btn btn-link btn-sm btn-rounded" href="{{ route('repertoire.edit', $repertoire->id) }}">@lang('lang.update')</a>
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    @lang('lang.delete')
+                                </button>
                                 @else
                                 @endif
                             </td>
@@ -87,6 +89,28 @@
         </div>
 
 
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@lang('lang.eraseArt')</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @lang('lang.eraseSure')
+            </div>
+            <div class="modal-footer">
+                <form action="{{ route('repertoire.edit', $repertoire->id)}}" method="post">
+                    @csrf
+                    @method('delete')
+                    <input type="submit" class="btn btn-danger" value="@lang('lang.delete')">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

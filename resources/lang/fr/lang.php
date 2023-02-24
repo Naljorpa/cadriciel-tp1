@@ -82,9 +82,15 @@ return [
   // forum.edit
   'modArt' => 'Modifier mon article',
 
-     // repertoire.index
-     'rep' => 'Répertoire de documents',
-     'addDoc' => 'Télécharger',
-     'action' => 'Actions',
-     'upload' => 'Téléverser votre document',
+  // repertoire.index
+  'rep' => 'Répertoire de documents',
+  'addDoc' => 'Téléverser',
+  'action' => 'Actions',
+  'upload' => 'Téléverser votre document',
+  'dSuccess' => 'Le fichier a été téléversé avec succès.',
+
+  // repertoire.edit
+  'download' => 'Télécharcher',
+  'editDoc' => 'Edit Document',
+  'eSuccess' => 'Mise à jour enregistrée',
 ];

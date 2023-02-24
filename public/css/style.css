@@ -316,6 +316,9 @@ h1 {
 .main-menu ul {
 	list-style: none;
 	margin-top: 1rem;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .main-menu ul li {
@@ -326,10 +329,15 @@ h1 {
 	display: inline-block;
 	font-size: 16px;
 	color: #fff;
-	margin-left: 45px;
+	margin-left: 30px;
 	font-weight: 600;
 	border-bottom: 2px solid transparent;
 }
+
+.main-menu ul:first-of-type li:first-of-type a{
+	margin-left: 0;
+}
+
 
 .main-menu ul li a:hover:not(.site-btn) {
 	
@@ -1758,6 +1766,10 @@ h1 {
 	}
 	h1 {
 		font-size: 40px;
+	}
+
+	.main-menu ul {
+		display: block;
 	}
 	
 	.header-btn {

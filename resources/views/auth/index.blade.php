@@ -27,13 +27,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
-                    @if($errors)
-                    <ul>
-                        @foreach($errors->all() as $error)
-                        <li class='text-danger'>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    @endif
                     <form action="{{route('user.auth')}}" method="post">
                         @csrf
                         <div class="controls">
@@ -66,7 +59,7 @@
                         </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mt-3">
                         <input type="submit" value="Connecter" class="site-btn btn-block">
                     </div>
                 </div>

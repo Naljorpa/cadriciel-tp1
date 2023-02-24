@@ -70,15 +70,11 @@
                                     </div>
                                 </div>
                             </div>
-                            
-
-
-                         
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="addresse">@lang('lang.address') *</label>
-                                        <input type="text" name="addresse" class="form-control" placeholder="@lang('lang.enterAdd') *" required="required" value="{{old('address')}}">
+                                        <input type="text" name="addresse" class="form-control" placeholder="@lang('lang.enterAdd') *" required="required" value="{{old('addresse')}}">
                                         @if ($errors->has('addresse'))
                                         <div class="text-danger mt-2">
                                             {{$errors->first('addresse')}}
@@ -103,7 +99,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="phone">@lang('lang.phone')</label>
-                                        <input type="text" name="phone" id="body" class="form-control" placeholder="(xxx) xxx-xxxx*" required="required" ></input>
+                                        <input type="text" name="phone" id="body" class="form-control" placeholder="(xxx) xxx-xxxx*" value="{{old('phone')}}" required="required" ></input>
                                     </div>
                                     @if ($errors->has('phone'))
                                     <div class="text-danger mt-2">
@@ -125,7 +121,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
                             </div>
                         </div>
