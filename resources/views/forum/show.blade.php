@@ -53,21 +53,16 @@
                             <div class="controls">
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <h2>@lang('lang.title')</h2>
                                         <p> {!! $forum->title_fr !!}</p>
-
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-
                                         <h3>@lang('lang.message')</h3>
                                         <p> {!! $forum->body_fr !!}</p>
-
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 

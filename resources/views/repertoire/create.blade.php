@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Écrire article')
+@section('title','Upload document')
 @section('content')
 
 <!-- Page info -->
@@ -7,12 +7,12 @@
     <div class="container">
         <div class="site-breadcrumb">
             <a href="{{url('/')}}">@lang('lang.home')</a>
-            <a href="{{route('forum.index')}}">@lang('lang.forum')</a>
-            <span>@lang('lang.addPost')</span>
+            <a href="{{route('repertoire.index')}}">@lang('lang.rep')</a>
+            <span>@lang('lang.addDoc')</span>
         </div>
         <div class="col-12 text-center ">
             <h1 class="display-one mt-5 text-white">
-                @lang('lang.addPost')
+                @lang('lang.addDoc')
             </h1>
         </div>
     </div>
@@ -25,13 +25,13 @@
             <div class="card-body bg-light">
 
                 <div class="container">
-                @if(session('success'))
+                    @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
                     </div>
                     @endif
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         @csrf
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -47,14 +47,11 @@
                                             <div class="form-group">
                                                 <label for="title">@lang('lang.title')</label>
                                                 <input type="text" id="title" name="title" class="form-control" required="required">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="body">@lang('lang.message')</label>
-                                                <textarea name="body" id="body" class="form-control" required="required"></textarea>
+                                                @if ($errors->has('nom'))
+                                                <div class="text-danger mt-2">
+                                                    {{$errors->first('title')}}
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -67,32 +64,43 @@
                                             <div class="form-group">
                                                 <label for="title_fr">@lang('lang.title')</label>
                                                 <input type="text" id="title_fr" name="title_fr" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="body_fr">@lang('lang.message')</label>
-                                                <textarea name="body_fr" id="body_fr" class="form-control"></textarea>
+                                                @if ($errors->has('nom'))
+                                                <div class="text-danger mt-2">
+                                                    {{$errors->first('title_fr')}}
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="body_fr">@lang('lang.upload')</label>
+                                    <input type="file" name="file" id="file" class="form-control">
+                                    @if ($errors->has('nom'))
+                                        <div class="text-danger mt-2">
+                                            {{$errors->first('file')}}
+                                        </div>
+                                        @endif
                                 </div>
                             </div>
                         </div>
-                        <p>* @lang('lang.mandatory')</p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="submit" value="@lang('lang.save')" class="site-btn btn-block">
+                            </div>
+                        </div>
                     </form>
                 </div>
+                <p>* @lang('lang.mandatory')</p>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 

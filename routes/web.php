@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController ;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\RepertoireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,20 @@ Route::delete('forum-edit/{forum}', [ForumController::class
 //Langue
 
 Route::get('/lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
+
+// Repertoire
+
+Route::get('repertoire', [RepertoireController::class
+, 'index'])->name('repertoire.index')->middleware('auth');
+
+Route::get('repertoire-create', [RepertoireController::class
+, 'create'])->name('repertoire.create')->middleware('auth');
+
+Route::post('repertoire-create', [RepertoireController::class
+, 'store'])->middleware('auth');//on peut effacer le name blog.store
+
+Route::get('repertoire/{repertoire}', [RepertoireController::class
+, 'show'])->name('repertoire.show')->middleware('auth');
+
+Route::get('repertoire/{id}/download',  [RepertoireController::class
+, 'download'])->name('repertoire.download');

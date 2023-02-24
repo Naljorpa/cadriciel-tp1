@@ -53,6 +53,7 @@ return [
   // dashboard
   'welcome' => 'Bienvenue',
   'access' => 'Accéder au forum',
+  'repertoire' => 'Accéder au répertoire',
 
   // forum.index
   'forum' => 'Forum',
@@ -80,4 +81,10 @@ return [
 
   // forum.edit
   'modArt' => 'Modifier mon article',
+
+     // repertoire.index
+     'rep' => 'Répertoire de documents',
+     'addDoc' => 'Télécharger',
+     'action' => 'Actions',
+     'upload' => 'Téléverser votre document',
 ];

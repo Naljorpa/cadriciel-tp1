@@ -20,7 +20,7 @@ class ForumController extends Controller
         
 
         if (Auth::check()) {
-            $forums = Forum::select()->paginate(10);;
+            $forums = Forum::select()->paginate(5);;
             return view('forum.index', ['forums' => $forums]);
         }
         return redirect(route('login'))->withErrors(trans('lang.notAuth'));

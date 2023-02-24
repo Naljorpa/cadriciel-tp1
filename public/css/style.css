@@ -1609,6 +1609,14 @@ h1 {
 	margin-right: 15px;
 }
 
+.icone-doc {
+	display: inline-block;
+}
+.icone-doc img{
+	width: 25px;
+	
+}
+
 /*------------------
   Responsive
 ---------------------*/

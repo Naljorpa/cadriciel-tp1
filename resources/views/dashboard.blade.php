@@ -9,9 +9,13 @@
             <h2>@lang('lang.welcome') {{ Auth::user()->nom }}</h2>
         </div>
         <div class="row">
-            <div class="col-12 text-center pt-5">
+            <div class="col-md-6 text-center pt-5">
                 <a href="{{route('forum.index')}}" class="site-btn">
                 @lang('lang.access')</a>
+            </div>
+            <div class="col-md-6 text-center pt-5">
+                <a href="{{route('repertoire.index')}}" class="site-btn">
+                @lang('lang.repertoire')</a>
             </div>
         </div>
     </div>
